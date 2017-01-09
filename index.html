@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="notepad" ng-cloak>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>NG Notepad</title>
+    <!-- Angular JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <!-- Angular Animate -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-animate.min.js"></script>
+    <!-- Angular Local Storage -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.5.0/angular-local-storage.min.js"></script>
+    <!-- Angular Xeditable -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.6.0/js/xeditable.min.js"></script>
+    <!-- Xeditable CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.6.0/css/xeditable.min.css">
+    <!-- CSS Framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/wingcss/0.1.8/wing.min.css"> 
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- App -->
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+  
+  <div class="container" ng-controller="NotesCtrl" ng-init="getNotes()">
+
+    <div class="row">
+      <div class="text-center">
+        <h1><i class="fa fa-pencil-square icon" aria-hidden="true"></i> Angular Notepad</h1>
+        <p>[Feel free to come back later, your notes will still be here!]</p>
+      </div>
+    </div>    
+    
+    
+    
+    <div class="row">
+      <div class="col-12 credit text-center">
+        <p id="credit">Made With <i class="fa fa-heart project-link" aria-hidden="true"></i> Using <a href="https://angularjs.org/" class="project-link">Angular</a> By <a href="" class="project-link">Al Mondragon</a>. <br>
+        Feel free to check it out on <a href="https://github.com/AlMon/Angular-Notepad" id="gh-link">Github!</a>
+        </p>
+      </div>
+    </div>
+      
+  </div>
+
+    
+  </body>
+</html>
