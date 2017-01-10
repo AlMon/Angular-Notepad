@@ -10,12 +10,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-animate.min.js"></script>
     <!-- Angular Local Storage -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.5.0/angular-local-storage.min.js"></script>
+    <!-- Angular Truncate -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-truncate/0.1.2/truncate.min.js"></script>
     <!-- Angular Xeditable -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.6.0/js/xeditable.min.js"></script>
     <!-- Xeditable CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.6.0/css/xeditable.min.css">
     <!-- CSS Framework -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/wingcss/0.1.8/wing.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/wingcss/0.1.9/wing.min.css">
     <!-- Custom Style -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Font Awesome -->
@@ -26,23 +28,44 @@
   <body>
   
   <div class="container" ng-controller="NotesCtrl" ng-init="getNotes()">
-
-    <div class="row">
+    
+    <!-- <div class="columns">
       <div class="text-center">
         <h1><i class="fa fa-pencil-square icon" aria-hidden="true"></i> Angular Notepad</h1>
         <p>[Feel free to come back later, your notes will still be here!]</p>
       </div>
-    </div>    
-    
-    
+    </div> -->    
     
     <div class="row">
+      <div class="col-3">
+        <form name="noteform" ng-submit="addNote()" novalidate>
+          <p class="text-center title">Add Note:</p>
+          <input name="title" type="text" ng-model="title" required placeholder="Note Title*" ng-required="true">
+          <input name="category" type="text" ng-model="category" required placeholder="Category*" ng-required="true">
+          <textarea name="content" type="text" ng-model="content" required placeholder="Note*" ng-required="true"></textarea>
+          <div class="center">
+            <button name="submit" ng-disabled="noteform.$invalid" class="add-btn">Add Note</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-3" ng-repeat="note in notes">
+        <div>
+          <p>{{note.title}}</p>
+          <p>{{note.category}}</p>
+          <small>{{note.content | characters:125: false}}</small>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <!--<div class="columns">
       <div class="col-12 credit text-center">
         <p id="credit">Made With <i class="fa fa-heart project-link" aria-hidden="true"></i> Using <a href="https://angularjs.org/" class="project-link">Angular</a> By <a href="" class="project-link">Al Mondragon</a>. <br>
         Feel free to check it out on <a href="https://github.com/AlMon/Angular-Notepad" id="gh-link">Github!</a>
         </p>
       </div>
-    </div>
+    </div>-->
       
   </div>
 

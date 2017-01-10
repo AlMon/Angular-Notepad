@@ -1,4 +1,4 @@
-var notepad = angular.module("notepad", ["LocalStorageModule", "xeditable", "ngAnimate"]);
+var notepad = angular.module("notepad", ["LocalStorageModule", "xeditable", "ngAnimate", "truncate"]);
 
 notepad.config(function (localStorageServiceProvider) {
   localStorageServiceProvider.setPrefix('ngpad');
@@ -13,7 +13,7 @@ notepad.controller("NotesCtrl", ["$scope", "localStorageService", function($scop
   $scope.notes = [];
   
   //Get the bookmarksData from Local Storage if there is some already in place
-  $scope.getNotes = function (){
+  $scope.getNotes = function(){
     if(localStorageService.get("noteData")){
       $scope.notes = localStorageService.get("noteData");
     } else {
@@ -24,17 +24,17 @@ notepad.controller("NotesCtrl", ["$scope", "localStorageService", function($scop
   $scope.addNote = function(){
     $scope.notes.unshift({
       title: $scope.title,
-      url: $scope.url,
-      category: $scope.category
+      category: $scope.category,
+      content: $scope.content
     });
     localStorageService.set("noteData", $scope.notes);
     $scope.title = "",
-    $scope.url = "",
-    $scope.category = "";
+    $scope.category = "",
+    $scope.content = ""
   }
   
   $scope.removeNote = function(start){
-    var confirmDelete = confirm("Are you sure you want to delete this bookmark?");
+    var confirmDelete = confirm("Are you sure you want to delete this note?");
     if (confirmDelete) {
       $scope.notes.splice(start, 1);
       localStorageService.set("noteData", $scope.notes);
