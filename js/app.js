@@ -13,7 +13,7 @@ notepad.config(["$stateProvider", "$urlRouterProvider", "localStorageServiceProv
     controller: "NotesCtrl"
   })
   .state("note", {
-    url: "/note",
+    url: "/note/:id",
     templateUrl: "views/note.html",
     controller: "NotesCtrl"
   });
@@ -24,7 +24,7 @@ notepad.run(function(editableOptions) {
   editableOptions.theme = 'default';
 });
 
-notepad.controller("NotesCtrl", ["$scope", "localStorageService", function($scope, localStorageService){
+notepad.controller("NotesCtrl", ["$scope", "localStorageService", "$stateParams", function($scope, localStorageService, $stateParams){
   
   $scope.notes = [];
   
@@ -49,6 +49,9 @@ notepad.controller("NotesCtrl", ["$scope", "localStorageService", function($scop
     $scope.category = "",
     $scope.content = ""
   }
+  
+  $scope.currentId = $stateParams.id;
+  $scope.currentTitle = $stateParams.title;
   
   $scope.deleteNote = function(start){
     var confirmDelete = confirm("Are you sure you want to delete this note?");
