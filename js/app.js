@@ -1,8 +1,18 @@
-var notepad = angular.module("notepad", ["LocalStorageModule", "xeditable", "ngAnimate", "truncate"]);
+var notepad = angular.module("notepad", ["LocalStorageModule", "xeditable", "ngAnimate", "truncate", "ui.router"]);
 
-notepad.config(function (localStorageServiceProvider) {
+
+notepad.config(["$stateProvider", "$urlRouterProvider", "localStorageServiceProvider", function($stateProvider, $urlRouterProvider, localStorageServiceProvider){
   localStorageServiceProvider.setPrefix('ngpad');
-});
+  
+  $urlRouterProvider.otherwise("/");
+  
+  $stateProvider.state("home", {
+    url: "/",
+    templateUrl: "views/home.html",
+    controller: "NotesCtrl"
+  });
+  
+}]);
 
 notepad.run(function(editableOptions) {
   editableOptions.theme = 'default';

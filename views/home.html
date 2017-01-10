@@ -1,0 +1,20 @@
+<div class="row" ng-init="getNotes()">
+  <div class="col-3">
+    <form name="noteform" ng-submit="addNote()" novalidate>
+      <p class="text-center title">Add Note:</p>
+      <input name="title" type="text" ng-model="title" required placeholder="Note Title*" ng-required="true">
+      <input name="category" type="text" ng-model="category" required placeholder="Category*" ng-required="true">
+      <textarea name="content" type="text" ng-model="content" required placeholder="Note*" ng-required="true"></textarea>
+      <div class="center">
+        <button name="submit" ng-disabled="noteform.$invalid" class="add-btn">Add Note</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-3" ng-repeat="note in notes">
+    <div>
+      <p>{{note.title}}</p>
+      <p>{{note.category}}</p>
+      <small>{{note.content | characters:125: false}}</small>
+    </div>
+  </div>
+</div>
