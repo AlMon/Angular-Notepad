@@ -6,9 +6,15 @@ notepad.config(["$stateProvider", "$urlRouterProvider", "localStorageServiceProv
   
   $urlRouterProvider.otherwise("/");
   
-  $stateProvider.state("home", {
+  $stateProvider
+  .state("home", {
     url: "/",
     templateUrl: "views/home.html",
+    controller: "NotesCtrl"
+  })
+  .state("note", {
+    url: "/note",
+    templateUrl: "views/note.html",
     controller: "NotesCtrl"
   });
   
@@ -35,7 +41,8 @@ notepad.controller("NotesCtrl", ["$scope", "localStorageService", function($scop
     $scope.notes.unshift({
       title: $scope.title,
       category: $scope.category,
-      content: $scope.content
+      content: $scope.content,
+      noteId: Date.now()
     });
     localStorageService.set("noteData", $scope.notes);
     $scope.title = "",
@@ -43,7 +50,7 @@ notepad.controller("NotesCtrl", ["$scope", "localStorageService", function($scop
     $scope.content = ""
   }
   
-  $scope.removeNote = function(start){
+  $scope.deleteNote = function(start){
     var confirmDelete = confirm("Are you sure you want to delete this note?");
     if (confirmDelete) {
       $scope.notes.splice(start, 1);

@@ -15,6 +15,9 @@
       <p>{{note.title}}</p>
       <p>{{note.category}}</p>
       <small>{{note.content | characters:125: false}}</small>
+      <br>
+      <a ui-sref="note">See Note</a>
+      <button ng-click="deleteNote($index)">Delete</button>
     </div>
   </div>
 </div>

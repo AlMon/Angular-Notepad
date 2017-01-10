@@ -28,7 +28,7 @@ h1 {
   font-size: 11px; 
 }
 
-/* Classes for animations */
+/* Classes for animations 
 .add-btn:disabled, [type="submit"]:disabled, button:disabled {
   background: #FFF;
   border: 1px #E25041 solid;
@@ -90,4 +90,4 @@ h1 {
 
 .ng-hide-remove.ng-hide-remove-active {
   transform: rotateY(0);
-}
+} */
