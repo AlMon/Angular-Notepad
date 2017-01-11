@@ -13,7 +13,7 @@ notepad.config(["$stateProvider", "$urlRouterProvider", "localStorageServiceProv
     controller: "NotesCtrl"
   })
   .state("note", {
-    url: "/note/:id",
+    url: "/:id",
     templateUrl: "views/note.html",
     controller: "NotesCtrl"
   });
@@ -50,8 +50,7 @@ notepad.controller("NotesCtrl", ["$scope", "localStorageService", "$stateParams"
     $scope.content = ""
   }
   
-  $scope.currentId = $stateParams.id;
-  $scope.currentTitle = $stateParams.title;
+  $scope.currentId = $stateParams.id;  
   
   $scope.deleteNote = function(start){
     var confirmDelete = confirm("Are you sure you want to delete this note?");

@@ -1,6 +1,10 @@
 <div class="row" ng-init="getNotes()">
   <div class="col-12">
-    {{currentId}}
-    {{currentTitle}}
+    <a ui-sref="home"><-- Go Back To Notes</a>
+    <div ng-repeat="note in notes | filter:currentId">
+      <p>{{note.title}}</p>
+      <p>{{note.category}}</p>
+      <p>{{note.content}}</p>
+    </div>
   </div>
 </div>
