@@ -1,8 +1,10 @@
 var notepad = angular.module("notepad", ["LocalStorageModule", "xeditable", "ngAnimate", "truncate", "ui.router"]);
 
 
-notepad.config(["$stateProvider", "$urlRouterProvider", "localStorageServiceProvider", function($stateProvider, $urlRouterProvider, localStorageServiceProvider){
+notepad.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", "localStorageServiceProvider", function($stateProvider, $urlRouterProvider, $locationProvider, localStorageServiceProvider){
   localStorageServiceProvider.setPrefix('ngpad');
+  $locationProvider.html5Mode(true)
+  .hashPrefix('!');
   
   $urlRouterProvider.otherwise("/");
   
