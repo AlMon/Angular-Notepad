@@ -50,6 +50,10 @@ notepad.controller("NotesCtrl", ["$scope", "localStorageService", "$stateParams"
     $scope.content = ""
   }
   
+  $scope.updateNote = function(){
+    localStorageService.set("noteData", $scope.notes);
+  }
+  
   $scope.currentId = $stateParams.id;  
   
   $scope.deleteNote = function(start){

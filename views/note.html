@@ -1,10 +1,18 @@
 <div class="row" ng-init="getNotes()">
-  <div class="col-12">
-    <a ui-sref="home"><-- Go Back To Notes</a>
+  <div class="col-3"></div>
+  <div class="col-6">
     <div ng-repeat="note in notes | filter:currentId">
-      <p>{{note.title}}</p>
-      <p>{{note.category}}</p>
-      <p>{{note.content}}</p>
+      <h1 class="note-title" editable-text="note.title" onaftersave="updateNote()" e-required>{{note.title}}</h1>
+      <p class="note-category" editable-text="note.category" onaftersave="updateNote()" e-required>{{note.category}}</p>
+      <p class="note-content" editable-textarea="note.content" onaftersave="updateNote()" e-required e-class="edit-box">{{note.content}}</p>
     </div>
   </div>
+</div>
+
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6 text-center">
+    <button ui-sref="home"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Go Back To Notes</button>
+  </div>
+  <div class="col-3"></div>
 </div>

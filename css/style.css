@@ -1,6 +1,88 @@
 /* Project Styles */
+#site-title {
+  cursor: pointer;
+}
 
+button {
+  background: #E25041;
+}
 
+.card {
+  background: #FFF none repeat scroll 0% 0%;
+  border: 0.1rem solid #EFEFEF;
+  border-radius: 0.5rem;
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  text-align: left;
+  z-index: 999;
+  padding: 1.5rem 1.5rem 0px;
+  margin-top: 20px;
+}
+
+.card .card-title {
+  font-size: 1.4em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  margin-top: 0px;
+}
+
+.card .card-category {
+  color: #B3B3B3;
+  font-size: 1em;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.card .card-body {
+  margin-top: 5px;
+}
+
+.see-btn {
+  margin: 0 0 15px 0;
+  background: transparent;
+  border: 2px solid #E25041;
+  color: #E25041;
+}
+
+.see-btn:hover {
+  background: #d03020;
+  color: #FFF;
+  border: 2px solid #d03020;
+}
+
+.delete-btn {
+  margin: 0 0 15px 0;
+  background: transparent;
+  border: none;
+  color: #000;
+}
+
+.note-title {
+  font-weight: 500;
+  border-bottom: none !important;
+  color: #000;
+}
+
+.note-category {
+  line-height: 0;
+  font-size: 2rem;
+  color: #B3B3B3;
+  border-bottom: none !important;
+}
+
+.note-content {
+  font-size: 1.8rem;
+  line-height: 27px;
+  border-bottom: none !important;
+  color: #000;
+  white-space: pre-line;
+}
+
+.edit-box {
+  width: 300px;
+  border: none;
+}
 
 /* Universal Styles */
 
@@ -28,11 +110,11 @@ h1 {
   font-size: 11px; 
 }
 
-/* Classes for animations 
+/* Classes for animations */
 .add-btn:disabled, [type="submit"]:disabled, button:disabled {
   background: #FFF;
-  border: 1px #E25041 solid;
-  color: #E25041;
+  border: 1px #777 solid;
+  color: #777;
   opacity: 0.8;
   cursor: not-allowed;
 }
@@ -90,4 +172,4 @@ h1 {
 
 .ng-hide-remove.ng-hide-remove-active {
   transform: rotateY(0);
-} */
+} 

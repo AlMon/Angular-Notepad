@@ -10,14 +10,15 @@
       </div>
     </form>
   </div>
-  <div class="col-3" ng-repeat="note in notes">
-    <div>
-      <p>{{note.title}}</p>
-      <p>{{note.category}}</p>
-      <small>{{note.content | characters:125: false}}</small>
-      <br>
-      <a ui-sref="note({id: note.noteId})">See Note</a>
-      <button ng-click="deleteNote($index)">Delete</button>
+  <div class="col-3" ng-repeat="note in notes">    
+    <div class="card">
+      <p class="card-title">{{note.title}}</p>
+      <p class="card-category">{{note.category}}</p>
+      <p class="card-body">{{note.content | characters:75: false}}</p>
+      <div class="text-center">
+        <button ui-sref="note({id: note.noteId})" class="see-btn">See Note</button>
+        <button ng-click="deleteNote($index)" class="delete-btn">Delete</button>
+      </div>
     </div>
   </div>
 </div>
